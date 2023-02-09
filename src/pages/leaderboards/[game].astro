@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { game: "jak1" }, props: { title: "Jak TPL" } },
+    { params: { game: "jak2" }, props: { title: "Jak 2" } },
+    { params: { game: "jak3" }, props: { title: "Jak 3" } },
+    { params: { game: "jaktrifecta" }, props: { title: "Jak Trifecta" } },
+    { params: { game: "jakx" }, props: { title: "Jak X" } },
+    { params: { game: "daxter" }, props: { title: "Daxter" } },
+    { params: { game: "jaktlf" }, props: { title: "Jak TLF" } },
+  ];
+}
+
+const { game } = Astro.params;
+const { title } = Astro.props;
+---
+
+<Layout title={`${title} | Leaderboard`}>
+  <main>
+    <div class="row">
+      <div class="col-12 col-6-md">
+        <div>{title} Leaderboard</div>
+      </div>
+      <div class="col-12 col-6-md">
+        <div>{game}</div>
+      </div>
+    </div>
+  </main>
+</Layout>

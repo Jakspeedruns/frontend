@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+		<h1>I've omitted category extensions for now for this demo</h1>
+    <table id="leaderboard" class="table table-hover table-dark">
+      <tr>
+        <td>Loading...</td>
+      </tr>
+    </table>
+  </main>
+  <script>
+		// Kill this with fire, asap, porting the PHP code to javascript basically
+    import { gameAndCategoryInfo, makeGameLeaderboard } from "../deprecated/fetch_leaderboard";
+
+		function getCategories(gameCategories : any) {
+			let categories = [];
+			for (const [categoryName, categoryInfo] of Object.entries(gameCategories)) {
+				if ("difficulty" in  categoryInfo) {
+					categories.push({"name": categoryName, "difficulty": categoryInfo.difficulty, "subcategories": []});
+				} else {
+					let subCategories = [];
+					for (const [subName, subInfo] of Object.entries(categoryInfo)) {
+						subCategories.push({"name": subName, "difficulty": subInfo.difficulty});
+					}
+					categories.push({"name": categoryName, "subcategories": subCategories});
+				}
+
+			}
+			return categories;
+		}
+
+    let categoryInfo : any = gameAndCategoryInfo;
+		console.log(categoryInfo);
+
+		let leaderboardQuery = [];
+		for (const [gameName, gameCategories] of Object.entries(categoryInfo)) {
+			const categories = getCategories(gameCategories);
+			leaderboardQuery.push({"gameName": gameName, "categories": categories});
+		}
+
+    makeGameLeaderboard(leaderboardQuery);
+  </script>
+</Layout>
