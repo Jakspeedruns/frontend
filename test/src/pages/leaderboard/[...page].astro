@@ -1,0 +1,19 @@
+---
+import { getEntry } from "astro:content";
+import PageLayoutArchive from "@layouts/PageLayoutArchive.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths({ paginate }) {
+  const leaderboards = (await getCollection("leaderboard")).sort(
+    (a, b) => a.data.order - b.data.order,
+  );
+  const { data } = await getEntry("config", "leaderboard");
+
+  return paginate(leaderboards, { pageSize: data.per_page });
+}
+const base_url = "leaderboard";
+const { page } = Astro.props;
+const { data } = await getEntry("config", "leaderboard");
+---
+
+<PageLayoutArchive {page} {data} {base_url} />
