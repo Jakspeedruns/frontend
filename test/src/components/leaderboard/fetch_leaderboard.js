@@ -58,13 +58,20 @@ export function cleanupRunnerTimeScores(runnerScores) {
       });
     } else {
       dedupedScores.push({
-        names: score.name,
+        name: score.name,
         time: score.time,
         zScore: score.zScore,
         timeFromAverage: [score.timeFromAverage],
         points: null,
+        span: 1
       });
-      dedupedScores[dedupedScores.length - 1].span++;
+      // iterate backwards until we find an entry with non-null points, increment it's span
+      for (let i = dedupedScores.length - 1; i >= 0; i--) {
+        if (dedupedScores[i].points !== null) {
+          dedupedScores[i].span++;
+          break;
+        }
+      }
     }
   }
   return dedupedScores;
@@ -282,127 +289,3 @@ function getScores(runnerTimes, difficulty) {
 
   return runnerScores;
 }
-
-// function getLeaderboard($gameName = null, $categoryName = null, $subcategoryName = null, $extensionGame = null)
-// {
-//     global $gameAndCategoryInfo;
-
-//     $results = [];
-//     // Get everything
-//     if ($gameName == null && $categoryName == null && $subcategoryName == null) {
-//         foreach ($gameAndCategoryInfo as $game => $gameCategories) {
-//             $categories = getCategories($gameCategories);
-//             array_push($results, ["gameName" => $game, "categories" => $categories]);
-//         }
-//     }
-//     // Get everything for a particular game
-//     else if ($gameName != null && $categoryName == null && $subcategoryName == null) {
-//         if (array_key_exists($gameName, $gameAndCategoryInfo)) {
-//             $categories = getCategories($gameAndCategoryInfo[$gameName]);
-//             array_push($results, ["gameName" => $gameName, "categories" => $categories]);
-//         }
-//     }
-//     // Get everything for a particular category
-//     // NOTE - assumes they didnt omit the subcategory if its actually a category of subcategories
-//     else if ($gameName != null && $categoryName != null && $subcategoryName == null) {
-//         if (array_key_exists($gameName, $gameAndCategoryInfo)) {
-//             $gameCategories = $gameAndCategoryInfo[$gameName];
-//             if (array_key_exists($categoryName, $gameCategories)) {
-//                 $categoryDifficulty = $gameCategories[$categoryName]["difficulty"];
-//                 array_push($results, ["gameName" => $gameName, "categories" => [["name" => $categoryName, "difficulty" => $categoryDifficulty, "subcategories" => []]]]);
-//             }
-//         }
-//     }
-//     // Get everything for a particular subcategory
-//     else if ($gameName != null && $categoryName != null && $subcategoryName != null) {
-//         if (array_key_exists($gameName, $gameAndCategoryInfo)) {
-//             $gameCategories = $gameAndCategoryInfo[$gameName];
-//             if (array_key_exists($categoryName, $gameCategories)) {
-//                 $category = $gameCategories[$categoryName];
-//                 if (array_key_exists($subcategoryName, $category)) {
-//                     $subcategoryDifficulty = $category[$subcategoryName]["difficulty"];
-//                     array_push($results, ["gameName" => $gameName, "categories" => [["name" => $categoryName, "subcategories" => [["name" => $subcategoryName, "difficulty" => $subcategoryDifficulty]]]]]);
-//                 }
-//             }
-//         }
-//     }
-
-//     // Include extension categories
-//     if ($extensionGame != null && $gameName != null && $categoryName == null && $subcategoryName == null) {
-//         if (array_key_exists($extensionGame, $gameAndCategoryInfo) && array_key_exists($gameName, $gameAndCategoryInfo[$extensionGame])) {
-//             $subCategories = [];
-//             foreach ($gameAndCategoryInfo[$extensionGame][$gameName] as $subCategory => $subcategoryInfo) {
-//                 array_push($subCategories, ["name" => $subCategory, "difficulty" => $subcategoryInfo["difficulty"]]);
-//             }
-//             array_push($results, ["gameName" => $extensionGame, "categories" => [["name" => $gameName, "subcategories" => $subCategories]]]);
-//         }
-//     }
-
-//     return json_encode($results);
-// }
-
-function renderTable(categoryLeaderboard, runnerTimes) {
-  // TODO - i think this can be simplified, i think scoreLock has something to do with
-  // rows with the same amount of points?
-  
-
-
-
-
-  let scoreLock = 0;
-  for (let i = 0; i < scores.length; i++) {
-    let initialScoreLock = false;
-    if (scoreLock <= 0 && (i + 1) < scores.length && scores[i].points === scores[i + 1].points) {
-      initialScoreLock = true;
-      scoreLock++;
-      while ((i + scoreLock) < scores.length && scores[i].points === scores[i + scoreLock].points) {
-        scoreLock++;
-      }
-    }
-
-    let row = "<tr> ";
-    if (scoreLock > 0) {
-      if (initialScoreLock) {
-        row += `<td rowspan="${scoreLock}" style="vertical-align: middle;">${i + 1}</td>`;
-      } else {
-        row += ``;
-      }
-    } else {
-      row += `<td>${i + 1}</td>`;
-    }
-
-    row += ` <td>${scores[i].name}</td>`;
-    if (categoryLeaderboard) {
-      let score;
-      if (scores[i].zScore === Number.POSITIVE_INFINITY) {
-        score = "&infin;";
-      } else if (scores[i].zScore === Number.NEGATIVE_INFINITY) {
-        score = "-&infin;";
-      } else {
-        score = scores[i].zScore.toFixed(3);
-      }
-      row += ` <td style="text-align: center;">${secondsToHumanFormat(scores[i].time)}</td> <td style="text-align: center;">${secondsToHumanFormat(scores[i].timeFromAverage)}</td> <td>${score}</td>`;
-    }
-
-    if (scoreLock > 0) {
-      if (initialScoreLock) {
-        row += `<td rowspan="${scoreLock}" style="vertical-align: middle; text-align: center;">${scores[i].points.toLocaleString('en')}</td>`;
-      } else {
-        row += ``;
-      }
-    } else {
-      row += `<td style="text-align: center;">${scores[i].points.toLocaleString('en')}</td>`;
-    }
-
-    row += " </tr>";
-
-    finalOutput += row;
-
-    if (scoreLock > 0) {
-      scoreLock--;
-    }
-  }
-
-  document.getElementById("leaderboard").innerHTML = finalOutput;
-}
-

@@ -60,7 +60,7 @@ body {
 }
 
 .surface-primary {
-  @apply bg-primary text-white dark:text-white;
+  @apply bg-primary text-white dark:text-black;
   a:not([class]) {
     @apply text-light;
   }
@@ -459,5 +459,85 @@ a.link-underline {
 [data-is-scrolling-up="false"][data-is-top="false"] {
   .nav {
     @apply -translate-y-full;
+  }
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: "Inter Tight Variable", "Adjusted Arial Fallback", "arial", sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #ffaf02;
+  color: #000;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #202020;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #ffaf02;
+}
+
+.styled-table tbody tr:hover {
+  font-weight: bold;
+  color: #ffaf02;
+}
+
+/* Responsive Twitch Embed */
+.twitch .twitch-video {
+  padding-top: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.twitch .twitch-video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+ top: 0;
+}
+
+.twitch .twitch-chat {
+  height: 400px;
+}
+
+.twitch .twitch-chat iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 850px) {
+  .twitch {
+    position: relative;
+  }
+
+  .twitch .twitch-video {
+    width: 75%;
+    padding-top: 42.1875%;
+  }
+
+  .twitch .twitch-chat {
+    width: 25%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
   }
 }

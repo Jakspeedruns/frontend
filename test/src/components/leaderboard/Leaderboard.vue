@@ -26,7 +26,8 @@ const loading = ref(false);
 const singleCategory = ref(false);
 const leaderboardQueryItems = ref([]);
 const leaderboardScores = ref([]);
-const filterableCategories = ref([]);
+// TODO - allow filtering by game (on global page) or by category (on game page)
+// show difficulties on the leaderboard page, etc
 
 function getCategories(gameCategories) {
   let categories = [];
@@ -68,6 +69,17 @@ function getLeaderboard() {
         gameName: gameName,
         categories: getCategories(gameCategories),
       });
+    }
+  } else {
+    for (const [gameName, gameCategories] of Object.entries(
+      gameAndCategoryInfo,
+    )) {
+      if (gameName === gameId.value || gameName === extensionGameId.value) {
+        games.push({
+          gameName: gameName,
+          categories: getCategories(gameCategories),
+        });
+      }
     }
   }
   return games;
@@ -196,8 +208,10 @@ onMounted(async () => {
 });
 </script>
 
+<!-- TODO - make merged rows look nicer eventually -->
+
 <template>
-  <table>
+  <table class="styled-table">
     <thead>
       <tr>
         <th>Rank</th>
@@ -207,23 +221,23 @@ onMounted(async () => {
         <th v-if="singleCategory">&sigma;&nbsp;Away</th>
         <th>Points</th>
       </tr>
-      <tr v-if="loading">
-        Loading...{{ numRequestsSuccess }} / {{ numRequestsTotal }} Succeeded<template v-if="numRequestsError > 0"> {{ numRequestsError }} Failed</template>
-      </tr>
     </thead>
-    <tbody v-if="!loading">
-      <tr v-if="leaderboardScores.length === 0">
+    <tbody>
+      <tr v-if="loading">
+        <td colspan="singleCategory ? 6 : 3">Loading...<br/>{{ numRequestsSuccess }} / {{ numRequestsTotal }} Succeeded<template v-if="numRequestsError > 0"><br/>{{ numRequestsError }} Failed</template></td>
+      </tr>
+      <tr v-if="!loading && leaderboardScores.length === 0">
         No Runs Found
       </tr>
-      <tr v-else v-for="(score, index) in leaderboardScores">
-        <td v-if="score.points !== null" :rowspan="score.span">{{ index + 1 }}</td>
+      <tr v-else v-for="(score, index) in leaderboardScores" :class="score.points === null ? 'no-background' : null">
+        <td v-if="score.points !== null" :rowspan="score.span > 1 ? score.span : null">{{ index + 1 }}</td>
         <td>{{ score.name }}</td>
         <td v-if="singleCategory">{{ secondsToHumanFormat(score.time) }}</td>
         <td v-if="singleCategory">{{ secondsToHumanFormat(score.timeFromAverage) }}</td>
         <td v-if="singleCategory">
           {{ zScoreFormatting(score.zScore) }}
         </td>
-        <td :rowspan="score.span" v-if="score.points !== null">{{ score.points }}</td>
+        <td :rowspan="score.span > 1 ? score.span : null" v-if="score.points !== null">{{ score.points }}</td>
       </tr>
     </tbody>
   </table>

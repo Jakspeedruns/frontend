@@ -10,6 +10,7 @@ const {
   title,
   description,
   thumbnail,
+  split_image,
   og_image,
   intro,
   tag,
@@ -47,7 +48,7 @@ const hasBlocks = blocks && blocks.length > 0;
         } sticky top-0 overflow-hidden sm:h-screen`}
       >
         {
-          thumbnail && (
+          thumbnail && !split_image && (
             <Picture
               attributes={{
                 picture: {
@@ -56,6 +57,28 @@ const hasBlocks = blocks && blocks.length > 0;
                 },
               }}
               src={thumbnail}
+              sizes="(max-width: 767px) 100vw, 100vh"
+              width={1920}
+              height={1920}
+              ar={1}
+              position="entropy"
+              loading="eager"
+              alt={title}
+              layout="fill"
+            />
+          )
+        }
+
+        {
+          split_image && (
+            <Picture
+              attributes={{
+                picture: {
+                  class: "sm:h-screen z-0",
+                  style: `opacity: ${style.hero_image_opacity || 0.7} `,
+                },
+              }}
+              src={split_image}
               sizes="(max-width: 767px) 100vw, 100vh"
               width={1920}
               height={1920}
@@ -122,7 +145,7 @@ const hasBlocks = blocks && blocks.length > 0;
     </div>
 
     <div
-      class="page-split__content z-0 mb-0 mt-8 w-full md:max-w-2xl md:pl-0 md:pr-8"
+      class="page-split__content z-0 mb-0 mt-8 w-full md:pl-0 md:pr-8"
     >
       <div class={`flex h-full flex-col ${hasBlocks ? "pb-10" : "pb-20"}`}>
         <slot />
@@ -173,6 +196,9 @@ const hasBlocks = blocks && blocks.length > 0;
 
 <style is:global>
   .page-split__content {
+    @screen md {
+      padding-right: 5em !important;
+    }
     .img,
     iframe {
       width: calc(100% + var(--container-spacing));

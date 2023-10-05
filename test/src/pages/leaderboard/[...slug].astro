@@ -26,6 +26,7 @@ const base_url = "leaderboard";
 const post = Astro.props;
 const { Content } = await post.render();
 import Leaderboard from '@components/leaderboard/Leaderboard.vue'
+import { Suspense } from "vue";
 ---
 
 {
@@ -33,7 +34,9 @@ import Leaderboard from '@components/leaderboard/Leaderboard.vue'
     <PageLayoutSplit {...post.data} {base_url}>
       <div class="richtext pb-8">
         <Content/>
-        <Leaderboard client:only="vue" gameId={""} extensionGameId={""} />
+        <Suspense>
+          <Leaderboard client:only="vue" gameId={post.data.gameId} extensionGameId={post.data.extensionGameId} />
+        </Suspense>
       </div>
     </PageLayoutSplit>
   )

@@ -147,8 +147,11 @@ const leaderboard = defineCollection({
   schema: z.object({
     title: z.string(),
     thumbnail: z.string(),
-    og_image: z.string().optional(),
+    split_image: z.string().optional(),
     order: z.number(),
+    gameId: z.string(),
+    extensionGameId: z.string(),
+    og_image: z.string().optional(),
     blocks: blocks,
     style: style,
   }),
