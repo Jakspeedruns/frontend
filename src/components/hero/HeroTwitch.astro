@@ -17,6 +17,11 @@ const {
 } = Astro.props;
 
 const { slug } = Astro.params;
+
+let origin = "";
+if (Astro.site) {
+  origin = Astro.site.origin;
+}
 ---
 
 <div
@@ -26,15 +31,28 @@ const { slug } = Astro.params;
   transition:name={`hero_${slug || Math.random()}`}
   id="header"
 >
-  <div id="twitch-embed"></div>
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
-  <script type="text/javascript">
-    new Twitch.Embed("twitch-embed", {
-      width: "100%",
-      height: "100%",
-      channel: "monstercat"
-    });
-  </script>
+
+  <div class="twitch">
+    <div class="twitch-video">
+      <iframe
+        src={`https://player.twitch.tv/?channel=jakspeedruns&parent=${origin}&autoplay=false`}
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen="true"
+        height="100%"
+        width="100%">
+      </iframe>
+    </div>
+    <div class="twitch-chat">
+      <iframe
+        frameborder="0"
+        scrolling="no"
+        src=`https://www.twitch.tv/embed/jakspeedruns/chat?parent=${origin}`
+        height="100%"
+        width="100%">
+      </iframe>
+    </div>
+  </div>
 
   <div
     class="absolute inset-0 z-10 grid place-items-center bg-dark bg-opacity-20"
