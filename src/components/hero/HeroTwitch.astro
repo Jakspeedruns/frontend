@@ -35,7 +35,7 @@ if (Astro.site) {
   <div class="twitch">
     <div class="twitch-video">
       <iframe
-        src={`https://player.twitch.tv/?channel=jakspeedruns&parent=${origin}&autoplay=false`}
+        src={`https://player.twitch.tv/?channel=jakspeedruns&parent=${origin.replace("https://", "")}&autoplay=false`}
         frameborder="0"
         scrolling="no"
         allowfullscreen="true"
@@ -47,7 +47,7 @@ if (Astro.site) {
       <iframe
         frameborder="0"
         scrolling="no"
-        src=`https://www.twitch.tv/embed/jakspeedruns/chat?parent=${origin}`
+        src=`https://www.twitch.tv/embed/jakspeedruns/chat?parent=${origin.replace("https://", "")}`
         height="100%"
         width="100%">
       </iframe>
