@@ -1,0 +1,92 @@
+---
+import Button from "@components/navigation/Button.astro";
+import ItemFilter from "@components/navigation/ItemFilter.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+
+const {
+  title,
+  hero_buttons,
+  intro,
+  tag,
+  filter,
+  filters,
+  filter_type,
+  style,
+  pubDate,
+  base_url,
+} = Astro.props;
+
+const { slug } = Astro.params;
+---
+
+<div
+  class={`relative overflow-hidden  sm:h-screen ${
+    style.hero_surface || "surface-dark"
+  } ${style.hero_class || ""}`}
+  transition:name={`hero_${slug || Math.random()}`}
+  id="header"
+>
+  <div id="twitch-embed"></div>
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  <script type="text/javascript">
+    new Twitch.Embed("twitch-embed", {
+      width: "100%",
+      height: "100%",
+      channel: "monstercat"
+    });
+  </script>
+
+  <div
+    class="absolute inset-0 z-10 grid place-items-center bg-dark bg-opacity-20"
+  >
+    <div class="container-xl py-8">
+      <div class="max-w-3xl">
+        {
+          pubDate && (
+            <span class="text-overline">
+              <FormattedDate date={pubDate} />
+            </span>
+          )
+        }
+        <h1 class="title">
+          {title}
+        </h1>
+        {intro && <div class="subtitle balance py2"> {intro}</div>}
+
+        {
+          tag && (
+            <ItemFilter
+              filters={tag}
+              className="mt-4 justify-start"
+              links={true}
+              {base_url}
+            />
+          )
+        }
+
+        {
+          filters && (
+            <ItemFilter
+              filters={filters}
+              className="mt-4"
+              links={true}
+              active={filter}
+              type={filter_type}
+              {base_url}
+            />
+          )
+        }
+        {
+          hero_buttons && hero_buttons.length > 0 && (
+            <div class="flex flex-wrap gap-4 py-8">
+              {hero_buttons.map((btn) => (
+                <Button {...btn} />
+              ))}
+            </div>
+          )
+        }
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
