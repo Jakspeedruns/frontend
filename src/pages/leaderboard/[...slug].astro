@@ -35,7 +35,7 @@ import { Suspense } from "vue";
       <div class="richtext pb-8">
         <Content/>
         <Suspense>
-          <Leaderboard client:only="vue" gameId={post.data.gameId} extensionGameId={post.data.extensionGameId} />
+          <Leaderboard client:only gameId={post.data.gameId} extensionGameId={post.data.extensionGameId} />
         </Suspense>
       </div>
     </PageLayoutSplit>
