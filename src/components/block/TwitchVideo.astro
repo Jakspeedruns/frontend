@@ -1,0 +1,35 @@
+---
+import Intersecting from "@components/common/Intersecting.vue";
+const { container } = Astro.props;
+
+let origin = "";
+if (Astro.site) {
+  origin = Astro.site.origin;
+}
+---
+
+<Intersecting client:visible className="w-full">
+  <div class={`container-${container}  `} style="--animation-delay: 0.4s">
+    <div class="twitch">
+      <div class="twitch-video">
+        <iframe
+          src={`https://player.twitch.tv/?channel=jakspeedruns&parent=${origin.replace("https://", "")}&autoplay=false`}
+          frameborder="0"
+          scrolling="no"
+          allowfullscreen="true"
+          height="100%"
+          width="100%">
+        </iframe>
+      </div>
+      <div class="twitch-chat">
+        <iframe
+          frameborder="0"
+          scrolling="no"
+          src=`https://www.twitch.tv/embed/jakspeedruns/chat?darkpopout&parent=${origin.replace("https://", "")}`
+          height="100%"
+          width="100%">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</Intersecting>
