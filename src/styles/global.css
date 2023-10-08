@@ -495,7 +495,7 @@ a.link-underline {
 }
 
 .styled-table tbody tr:hover {
-  font-weight: bold;
+  background-color: #2b2b2b;
   color: #ffaf02;
 }
 
