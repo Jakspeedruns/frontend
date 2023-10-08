@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    --color-primary: 75 38 143; /* 135 94 212 */
+    --color-primary: 255 175 2;
     --color-secondary: 107 154 199;
     --color-accent: 119 112 150;
     --color-warning: 202 121 45;
@@ -27,20 +27,6 @@
     --popper-theme-border-radius: 0.2rem;
     --popper-theme-padding: 0.4rem;
     --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-primary: 255 175 2;
-      --color-secondary: 107 154 199;
-      --color-accent: 119 112 150;
-      --color-warning: 202 121 45;
-      --color-danger: 180 25 14;
-      --color-success: 77 137 101;
-      --color-dark: 25 28 38;
-      --color-light: 243 241 239;
-      --color-info: 25 28 38;
-    }
   }
 }
 
