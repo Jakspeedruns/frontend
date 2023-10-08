@@ -157,6 +157,20 @@ const leaderboard = defineCollection({
   }),
 });
 
+const highscores = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    thumbnail: z.string(),
+    split_image: z.string().optional(),
+    order: z.number(),
+    gameId: z.string(),
+    og_image: z.string().optional(),
+    blocks: blocks,
+    style: style,
+  }),
+});
+
 const page = defineCollection({
   type: "content",
   schema: z.object({

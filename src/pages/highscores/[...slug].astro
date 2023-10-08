@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import PageLayoutSplit from "@layouts/PageLayoutSplit.astro";
+import { t } from "@util/translate";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("highscores")).sort(
+    (a, b) => b.data.order - a.data.order,
+  );
+  return posts.map((post, index) => {
+    return {
+      params: { slug: post.slug },
+      props: {
+        ...post,
+        data: {
+          ...post.data,
+        },
+      },
+    };
+  });
+}
+
+type Props = CollectionEntry<"highscores">;
+const base_url = "highscores";
+const post = Astro.props;
+const { Content } = await post.render();
+import HighscoreLeaderboard from '@components/highscores/HighscoreLeaderboard.vue'
+import { Suspense } from "vue";
+---
+
+{
+  post.data.style.template === "split" && (
+    <PageLayoutSplit {...post.data} {base_url}>
+      <div class="richtext pb-8">
+        <Content/>
+        <Suspense>
+          <HighscoreLeaderboard client:only gameId={post.data.gameId} />
+        </Suspense>
+      </div>
+    </PageLayoutSplit>
+  )
+}
