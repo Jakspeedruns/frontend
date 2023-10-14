@@ -22,7 +22,7 @@ const m2dxOptions = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jakspeedruns.github.io",
+  site: "https://jakspeedruns.com",
   base: '',
   integrations: [
     icon({
