@@ -39,6 +39,7 @@ onMounted(async () => {
           <th>Player</th>
           <th>Score</th>
           <th>Video</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>
@@ -51,6 +52,7 @@ onMounted(async () => {
           <td>{{ score.score }}</td>
           <td v-if="score.videoLink !== null"><a :href="score.videoLink" target="_blank" rel="noopener">{{ score.videoLink }}</a></td>
           <td v-else>N/A</td>
+          <td v-if="score.timestamp !== null">{{ score.timestamp }}</td><td v-else>N/A</td>
         </tr>
       </tbody>
     </table>
