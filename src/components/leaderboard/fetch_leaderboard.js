@@ -201,6 +201,17 @@ function getMaxZScore(runCount) {
   }
 }
 
+//Find the max points for each category
+function getMaxPoints(scores) {
+  let maxValue = scores[0];
+  for (let i = 1; i < scores.length; i++) {
+    if (scores[i] > maxValue) {
+      maxValue = scores[i];
+    }
+  }
+  return maxValue;
+}
+
 // Given an array of objects { name, time }, returns an array of objects { name, time, zScore (standard deviations away from average; negative is faster, positive is slower), points }.
 function getScores(runnerTimes, difficulty) {
   let filter = filterRunsBySd(runnerTimes);
@@ -210,6 +221,7 @@ function getScores(runnerTimes, difficulty) {
   let sd = filter.sd;
   let points = 0;
 
+  let scores = [];
   let runnerScores = [];
 
   for (let i = 0; i < runnerTimes.length; i++) {
@@ -265,11 +277,15 @@ function getScores(runnerTimes, difficulty) {
       }
     }
 
-    if (difficulty > 2) {
-      if (difficulty == 3) {
+    if (difficulty > 1) {
+      if (difficulty == 2) {
+        points += 25;
+      } else if (difficulty == 3) {
         points += 50;
       } else if (difficulty == 4) {
         points += 100;
+      } else if (difficulty == 12) {
+        points += 10;
       } else if (difficulty == 13) {
         points += 25;
       } else if (difficulty == 14) {
@@ -277,6 +293,7 @@ function getScores(runnerTimes, difficulty) {
       }
     }
 
+    scores.push(points)
 
     runnerScores.push({
       name: runnerTimes[i].name,
@@ -287,5 +304,57 @@ function getScores(runnerTimes, difficulty) {
     });
   }
 
+  let maxPoints=getMaxPoints(scores);
+
+  for (let i = 0; i < runnerScores.length; i++) { //Can definitely be optimized, but it works
+    
+    let pointBoost=0;
+
+    if (difficulty > 1) {
+      if (difficulty == 2) {
+        pointBoost=25;
+        if (runCount > 99) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(1000-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*10)-pointBoost))+pointBoost;
+        }
+      } else if (difficulty == 3) {
+        pointBoost=50;
+        if (runCount > 24) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(1000-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*40)-pointBoost))+pointBoost;
+        }
+      } else if (difficulty == 4) {
+        pointBoost=100;
+        if (runCount > 9) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(1000-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*100)-pointBoost))+pointBoost;
+        }
+      } else if (difficulty == 12) {
+        pointBoost=10;
+        if (runCount > 99) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(500-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*5)-pointBoost))+pointBoost;
+        }
+      } else if (difficulty == 13) {
+        pointBoost=25;
+        if (runCount > 24) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(500-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*20)-pointBoost))+pointBoost;
+        }
+      } else if (difficulty == 14) {
+        pointBoost=50;
+        if (runCount > 9) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(500-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*50)-pointBoost))+pointBoost;
+        }
+      }
+    }
+  }
   return runnerScores;
 }
