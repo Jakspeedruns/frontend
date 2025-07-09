@@ -38,39 +38,80 @@ const trifectaVersionVariable = {
   },
 }
 
-export const gameIds = {
-  "daxter": {
-    id: "n26847dp",
-    categories: {
-      "any": {
-        id: "rklxpwkn",
-        subcategories: {}
-      },
-      "all-missions": {
-        id: "9kvxmj2g",
-        subcategories: {}
-      },
-      "hundred-and-one": {
-        id: "ndxjgj2q",
-        subcategories: {}
-      },
-    }
+const jakxVersionVariable = {
+  "console": {
+    id: "9l7yjo9l",
+    val: "q8k0dxkq"
   },
+  "emulator": {
+    id: "9l7yjo9l",
+    val: "qyzyjv71"
+  },
+}
+
+const jak1extVersionVariable = {
+  "original": {
+    id: "ylpqe9r8",
+    val: "jqzjpx2l"
+  },
+  "hd-collection": {
+    id: "ylpqe9r8",
+    val: "21d0z3pq"
+  },
+  "2017": {
+    id: "ylpqe9r8",
+    val: "klrgpyoq"
+  }
+}
+
+const jak2extVersionVariable = {
+  "original": {
+    id: "0nw0owrl",
+    val: "zqo4pep1"
+  },
+  "hd-collection": {
+    id: "0nw0owrl",
+    val: "rqv8p271"
+  },
+  "2017": {
+    id: "0nw0owrl",
+    val: "013g8kdl"
+  }
+}
+
+const jak3extVersionVariable = {
+  "original": {
+    id: "0nw0oqxl",
+    val: "9qj3v43l"
+  },
+  "hd-collection": {
+    id: "0nw0oqxl",
+    val: "5lm5v4mq"
+  },
+  "2017": {
+    id: "0nw0oqxl",
+    val: "jq6dnxj1"
+  }
+}
+
+const jakxextVersionVariable = {
+  "console": {
+    id: "kn0k5rd8",
+    val: "q65z8wnl"
+  },
+  "emulator": {
+    id: "kn0k5rd8",
+    val: "lmog7ey1"
+  }
+}
+
+export const gameIds = {
   "jak1": {
     id: "xkdk4g1m",
     categories: {
       "no-lts": {
         id: "5dw8r40d",
-        subcategories: {
-          "lava-walk-no": {
-            id: "7896v168",
-            val: "4qyee3d1"
-          },
-          "lava-walk-yes": {
-            id: "7896v168",
-            val: "mln66rnq"
-          }
-        }
+        subcategories: {}
       },
       "no-fcs": {
         id: "rkllg7qk",
@@ -80,16 +121,12 @@ export const gameIds = {
         id: "jdrqj0k6",
         subcategories: {}
       },
-      "hundred": {
+      "100": {
         id: "02qgyzdy",
         subcategories: {}
       },
       "orbless": {
         id: "824x53d5",
-        subcategories: {}
-      },
-      "no-major-skips": {
-        id: "02qyyydy",
         subcategories: {}
       },
       "all-orbs": {
@@ -102,32 +139,256 @@ export const gameIds = {
       }
     }
   },
+  "jak1ext": {//Unsure if this works for multiple subcategories
+    id: "3dxkp3g1",
+    categories: {
+      "no-lts-ext": {
+        id: "vdopw3o2",
+        subcategories: {
+          "no-major-skips": {
+            id: "r8r4137n",
+            val: "013g8mxl"
+          },
+          "no-damage": {
+            id: "r8r4137n",
+            val: "gq78jgd1"
+          },
+          "dark-glitch": {
+            id: "r8r4137n",
+            val: "21gm8g81"
+          },
+          jak1extVersionVariable
+        }
+      },
+      "debug": {
+        id: "02qeyo72",
+        subcategories: {
+          "any": {
+            id: "rn1j0x1n",
+            val: "5lejr8k1"
+          },
+          "100": {
+            id: "rn1j0x1n",
+            val: "0q5rn821"
+          },
+          jak1extVersionVariable
+        }
+      },
+      "100-hub-runs": {
+        id: "9d8516wd",
+        subcategories: {
+          "hub-1": {
+            id: "j84dexw8",
+            val: "zqo4pnx1"
+          },
+          "hub-2": {
+            id: "j84dexw8",
+            val: "013g8rxl"
+          },
+          "hub-3": {
+            id: "j84dexw8",
+            val: "rqv8pd61"
+          },
+          jak1extVersionVariable
+        }
+      },
+      "ng-plus": {
+        id: "xd1w9ez2",
+        subcategories: {
+          "lava-walk": {
+            id: "p8554738",
+            val: "4lxnp441"
+          },
+          "no-lava-walk": {
+            id: "p8554738",
+            val: "814zydvl"
+          },
+          "all-flies": {
+            id: "p8554738",
+            val: "p127dw4q"
+          },
+          "all-orbs": {
+            id: "p8554738",
+            val: "12vv2y4q"
+          },
+          jak1extVersionVariable
+        }
+      },
+      "low-eco": {
+        id: "jdzr18r2",
+        subcategories: {
+          "lowest": {
+            id: "38dmz3z8",
+            val: "z19nmr8q"
+          },
+          "10-eco": {
+            id: "38dmz3z8",
+            val: "p127dz4q"
+          },
+          "9-eco": {
+            id: "38dmz3z8",
+            val: "81p9pn8q"
+          },
+          jak1extVersionVariable
+        }
+      },
+      "orbless-max": {
+        id: "9d8516qd",
+        subcategories: jak1extVersionVariable
+      },
+      "1-x-press": {
+        id: "rkl04jwk",
+        subcategories: jak1extVersionVariable
+      },
+      "all-flies-and-orbs": {
+        id: "9kvr5me2",
+        subcategories: jak1extVersionVariable
+      },
+      "52-pickup": {
+        id: "zd35n6ek",
+        subcategories: jak1extVersionVariable
+      },
+      "kill-all-animals": {
+        id: "ndxrz1jd",
+        subcategories: jak1extVersionVariable
+      },
+      "all-cutscenes": {
+        id: "w20ejyzd",
+        subcategories: jak1extVersionVariable
+      },
+      "muse": {
+        id: "wkpg6vvk",
+        subcategories: jak1extVersionVariable
+      },
+      "no-bs": {
+        id: "7dg1l94d",
+        subcategories: jak1extVersionVariable
+      },
+      "all-flies-low-collectables": {
+        id: "mkew3r9k",
+        subcategories: jak1extVersionVariable
+      }
+    }//Could add bingo
+  },
   "jak2": {
     id: "ok6qlo1g",
     categories: {
       "any": {
         id: "wdmze42q",
-        subcategories: jak2VersionVariable
+        subcategories: {}
       },
       "any-hoverless": {
         id: "xd1rxxrk",
-        subcategories: jak2VersionVariable
+        subcategories: {}
       },
       "all-missions": {
         id: "mkeon9d6",
-        subcategories: jak2VersionVariable
+        subcategories: {}
       },
-      "hundred": {
+      "100": {
         id: "7dg8q424",
-        subcategories: jak2VersionVariable
+        subcategories: {}
       },
       "any-all-orbs": {
         id: "wkpj7vkr",
-        subcategories: jak2VersionVariable
+        subcategories: {}
       },
       "any-hero-mode": {
         id: "vdo0jodp",
-        subcategories: jak2VersionVariable
+        subcategories: {}
+      }
+    }
+  },
+  "jak2ext": {//Unsure if this works for multiple subcategories
+    id: "v1pxqgm6",
+    categories: {
+      "all-missions": {
+        id: "vdopw3o2",
+        subcategories: {
+          "act-1": {
+            id: "6njk4ejl",
+            val: "klrgpkjq"
+          },
+          "act-2": {
+            id: "6njk4ejl",
+            val: "21d0z84q"
+          },
+          "act-3": {
+            id: "6njk4ejl",
+            val: "5q8y6vgl"
+          },
+          jak2extVersionVariable
+        }
+      },
+      "any-exts": {
+        id: "rkl04zrk",
+        subcategories: {
+          "no-damage": {
+            id: "ylpqerr8",
+            val: "5lm5k3jq"
+          },
+          "mirrored": {
+            id: "ylpqerr8",
+            val: "81wyp2oq"
+          },
+          jak2extVersionVariable
+        }
+      },
+      "any-segments": {
+        id: "w20ej58d",
+        subcategories: {
+          "1-3": {
+            id: "ql6r73kl",
+            val: "8104znwl"
+          },
+          "2-3": {
+            id: "ql6r73kl",
+            val: "9qj30mel"
+          },
+          "3-3": {
+            id: "ql6r73kl",
+            val: "jq6d0o31"
+          },
+          jak2extVersionVariable
+        }
+      },
+      "debug": {
+        id: "xd1w9q72",
+        subcategories: jak2extVersionVariable
+      },
+      "gunless": {
+        id: "9d851n6d",
+        subcategories: jak2extVersionVariable
+      },
+      "ashelin-stalker": {
+        id: "zd35nr8k",
+        subcategories: jak2extVersionVariable
+      },
+      "all-open-orbs-endgame": {
+        id: "vdopwny2",
+        subcategories: {
+          "no": {
+            id: "kn00jxon",
+            val: "mlnxwv0q"
+          },
+          "yes": {
+            id: "kn00jxon",
+            val: "4qy0p24l"
+          },
+          jak2extVersionVariable
+        }
+      },
+      "developer-picture": {
+        id: "n2yrw6zd",
+        subcategories: jak2extVersionVariable
+      },
+      "praxis-1": {
+        id: "wdmmg75d",
+        subcategories: jak2extVersionVariable
+      },
+      "im-gonna-kill-praxis": {
+        id: "ndxrz05d",
+        subcategories: jak2extVersionVariable
       }
     }
   },
@@ -136,52 +397,108 @@ export const gameIds = {
     categories: {
       "any": {
         id: "9d8p1qkn",
-        subcategories: jak3VersionVariable
+        subcategories: {}
       },
       "any-hero-mode": {
         id: "9kvp50kg",
-        subcategories: jak3VersionVariable
+        subcategories: {}
       },
       "any-no-oob": {
         id: "5dwj0n0k",
-        subcategories: jak3VersionVariable
+        subcategories: {}
       },
       "all-missions": {
         id: "xd1r98k8",
-        subcategories: jak3VersionVariable
+        subcategories: {}
       },
-      "hundred": {
+      "100": {
         id: "zd30nndn",
-        subcategories: jak3VersionVariable
+        subcategories: {}
       },
       "any-all-orbs": {
         id: "jdzw79vd",
-        subcategories: jak3VersionVariable
+        subcategories: {}
       }
     }
   },
-  "jaktlf": {
-    id: "m9dogm6p",
+  "jak3ext": {//Unsure if this works for multiple subcategories
+    id: "76r3eg46",
     categories: {
-      "any": {
-        id: "q25oywko",
-        subcategories: {}
+      "all-missions-acts": {
+        id: "q255rn82",
+        subcategories: {
+          "act-1": {
+            id: "789d6y0n",
+            val: "klrgpkjq"
+          },
+          "act-2": {
+            id: "789d6y0n",
+            val: "21d0z84q"
+          },
+          "act-3": {
+            id: "789d6y0n",
+            val: "5q8y6vgl"
+          },
+          "normal": {
+            id: "2lg1rwol",
+            val: "rqv8ge61"
+          },
+          "ng-plus": {
+            id: "2lg1rwol",
+            val: "5lej9mk1"
+          },
+          jak3extVersionVariable
+        }
       },
-      "hundred": {
-        id: "jdrqz0k6",
-        subcategories: {}
+      "no-oob-ng-plus": {
+        id: "jdzr1mv2",
+        subcategories: jak3extVersionVariable
       },
-      "any-hero-mode": {
-        id: "xk9eyjy2",
-        subcategories: {}
+      "all-bosses-ng-plus": {
+        id: "jdrwj5xk",
+        subcategories: jak3extVersionVariable
       },
-      "hundred-and-one": {
-        id: "z279ood0",
-        subcategories: {}
+      "all-satellites-ng-plus": {
+        id: "824q57gk",
+        subcategories: jak3extVersionVariable
       },
-      "hero-mode-no-sps": {
-        id: "xk99ngk0",
-        subcategories: {}
+      "jetboardless-ng-plus": {
+        id: "02qeynp2",
+        subcategories: jak3extVersionVariable
+      },
+      "debug": {
+        id: "z2758qgk",
+        subcategories: jak3extVersionVariable
+      },
+      "hero-mode-hoverless": {
+        id: "zd3m5682",
+        subcategories: jak3extVersionVariable
+      },
+      "all-open-orbs": {
+        id: "zdnoejq2",
+        subcategories: jak3extVersionVariable
+      },
+      "all-open-orbs-post-game": {
+        id: "q25plowd",
+        subcategories: jak3extVersionVariable
+      },
+      "gunless": {
+        id: "8243mwnd",
+        subcategories: {
+          "fresh-file": {
+            id: "rn1ymmvn",
+            val: "lx5ew421"
+          },
+          "hero-mode": {
+            id: "rn1ymmvn",
+            val: "14o7ed0q"
+          },
+          jak3extVersionVariable
+        }
+      },
+      "no-oob-restricted": {
+        id: "7dgjoz4d",
+        subcategories: jak3extVersionVariable
       }
     }
   },
@@ -192,7 +509,7 @@ export const gameIds = {
         id: "5dwjogkg",
         subcategories: {}
       },
-      "hundred": {
+      "100": {
         id: "wk6p9ed1",
         subcategories: {}
       },
@@ -206,6 +523,121 @@ export const gameIds = {
       },
       "all-cups": {
         id: "9kvm8xek",
+        subcategories: {/**
+          "skips": {
+            id: "2lg155el",
+            val: "8104kwpl"
+          },
+          "no-skips": {
+            id: "2lg155el",
+            val: "9qj3kxol"
+          }**/
+        }
+      }
+    }
+  },
+  "jakxext": {//Unsure if this works for multiple subcategories
+    id: "46w28796",
+    categories: {
+      "all-story-arenas": {
+        id: "mke71762",
+        subcategories: jakxextVersionVariable
+      },
+      "all-cups-and-qualifiers": {
+        id: "5dwx3xl2",
+        subcategories: {
+          "skips": {
+            id: "9l75j748",
+            val: "zqovre41"
+          },
+          "no-skips": {
+            id: "9l75j748",
+            val: "01365ky1"
+          },
+          jakxextVersionVariable
+        }
+      },
+      "24-tracks": {
+        id: "wk64q4xd",
+        subcategories: {
+          "skips": {
+            id: "rn1jo0pn",
+            val: "klr2yk01"
+          },
+          "no-skips": {
+            id: "rn1jo0pn",
+            val: "gq7xr3rl"
+          },
+          jakxextVersionVariable
+        }
+      },
+      "all-tours": {
+        id: "7kj4o5nk",
+        subcategories: {
+          "skips": {
+            id: "38dm2gz8",
+            val: "le26y36l"
+          },
+          "no-skips": {
+            id: "38dm2gz8",
+            val: "q5v9wxvl"
+          },
+          jakxextVersionVariable
+        }
+      },
+    }
+  },
+  "daxter": {
+    id: "n26847dp",
+    categories: {
+      "any": {
+        id: "rklxpwkn",
+        subcategories: {}
+      },
+      "no-tms": {
+        id: "vdo5zqyk",
+        subcategories: {}
+      },
+      "all-missions": {
+        id: "9kvxmj2g",
+        subcategories: {}
+      },
+      "101": {
+        id: "ndxjgj2q",
+        subcategories: {}
+      },
+    }
+  },
+  "daxterext": {
+    id: "4d7ng7r6",
+    categories: {
+      "all-masks": {
+        id: "rklm13rd",
+        subcategories: {}
+      }
+    }
+  },
+  "jaktlf": {
+    id: "m9dogm6p",
+    categories: {
+      "any": {
+        id: "q25oywko",
+        subcategories: {}
+      },
+      "max-no-hero-mode": {
+        id: "jdrqz0k6",
+        subcategories: {}
+      },
+      "hero-mode-any": {
+        id: "xk9eyjy2",
+        subcategories: {}
+      },
+      "101": {
+        id: "z279ood0",
+        subcategories: {}
+      },
+      "hero-mode-no-sps": {
+        id: "xk99ngk0",
         subcategories: {}
       }
     }
@@ -215,175 +647,16 @@ export const gameIds = {
     categories: {
       "any": {
         id: "5dwp5nkg",
-        subcategories: trifectaVersionVariable
+        subcategories: {}
       },
-      "hundred": {
+      "100": {
         id: "wk6j7rd1",
-        subcategories: trifectaVersionVariable
+        subcategories: {}
       },
       "any-debug": {
         id: "xd1ezxr2",
-        subcategories: trifectaVersionVariable
+        subcategories: {}
       }
     }
   },
-  // TODO - fix these IDs
-  // "jakext": {
-  //   id: "kdkz25qd",
-  //   categories: {
-  //     "jak1": {
-  //       id: "zdnx3y92",
-  //          subcategories: {
-  //             "low-eco": {
-  //                 id: "6njqpm5l",
-  //                 val: "jqzxvd21"
-  //             },
-  //             "any-debug": {
-  //                 id: "6njqpm5l",
-  //                 val: "klryjmoq"
-  //             },
-  //             "100-hub1": {
-  //                 id: "6njqpm5l",
-  //                 val: "5lmgx40l"
-  //             },
-  //             "100-hub2": {
-  //                 id: "6njqpm5l",
-  //                 val: "81w5md61"
-  //             },
-  //             "100-hub3": {
-  //                 id: "6njqpm5l",
-  //                 val: "zqory34q"
-  //             },
-  //             "new-game-plus": {
-  //                 id: "6njqpm5l",
-  //                 val: "p12x5ykl"
-  //             },
-  //             "new-game-plus-no-lw": {
-  //                 id: "6njqpm5l",
-  //                 val: "4qyeyo61"
-  //             },
-  //             "52-pickup": {
-  //                 id: "6njqpm5l",
-  //                 val: "81pd7mk1"
-  //             },
-  //             "all-flies-and-orbs": {
-  //                 id: "6njqpm5l",
-  //                 val: "81472ev1"
-  //             },
-  //             "orbless-max": {
-  //                 id: "6njqpm5l",
-  //                 val: "jqzx42m1"
-  //             },
-  //             "9-eco": {
-  //                 id: "6njqpm5l",
-  //                 val: "81w5e951"
-  //             },
-  //             "10-eco": {
-  //                 id: "6njqpm5l",
-  //                 val: "zqorm92q"
-  //             },
-  //             "1-x-press": {
-  //                 id: "6njqpm5l",
-  //                 val: "p123ky2l"
-  //             },
-  //             "100-debug": {
-  //                 id: "6njqpm5l",
-  //                 val: "z197vo4l"
-  //             },
-  //             "no-damage": {
-  //                 id: "6njqpm5l",
-  //                 val: "0q5k6xnq"
-  //             },
-  //             "kill-all-animals": {
-  //                 id: "6njqpm5l",
-  //                 val: "4qyo5g4l"
-  //             },
-  //             "all-cutscenes": {
-  //                 id: "6njqpm5l",
-  //                 val: "21dggd31"
-  //             },
-  //             "new-game-plus-all-flies": {
-  //                 id: "6njqpm5l",
-  //                 val: "p12drp4q"
-  //             },
-  //             "dark-glitch-no-lts": {
-  //                 id: "6njqpm5l",
-  //                 val: "4qyd424q"
-  //             }/**,
-  //             "muse": {
-  //                 id: "6njqpm5l",
-  //                 val: "gq7mnnpq"
-  //             }**/
-  //          }
-  //     },
-  //     "jak2": {
-  //       id: "q253p1vk",
-  //       subcategories: {
-  //         "gunless": {
-  //           id: "kn0zey08",
-  //           val: "21g2e7ml"
-  //         },
-  //         "any-debug": {
-  //           id: "kn0zey08",
-  //           val: "5q8d2pkl"
-  //         },
-  //         "developer-picture": {
-  //           id: "kn0zey08",
-  //           val: "gq7rnpyl"
-  //         },
-  //         "ashelin-stalker": {
-  //           id: "kn0zey08",
-  //           val: "4lxeyw41"
-  //         },
-  //         "all-missions-act-1": {
-  //           id: "kn0zey08",
-  //           val: "21d32zpq"
-  //         },
-  //         "any-mirrored": {
-  //           id: "kn0zey08",
-  //           val: "4lx309rl"
-  //         }
-  //       }
-  //     },
-  //     "jak3": {
-  //       id: "jdre0n5k",
-  //       subcategories: {
-  //         "any-debug": {
-  //           id: "ql649vw8",
-  //           val: "jqzxvdm1"
-  //         },
-  //         "all-open-orbs": {
-  //           id: "ql649vw8",
-  //           val: "rqvzdry1"
-  //         },
-  //         "hero-mode-all-bosses": {
-  //           id: "ql649vw8",
-  //           val: "814e7dkl"
-  //         }
-  //       }
-  //     },
-  //     "jak2-flash-game": {
-  //       id: "9d8xw572",
-  //       subcategories: {
-  //         "any": {
-  //           id: "wlex31r8",
-  //           val: "p12xopkl"
-  //         },
-  //         "any-hero-mode": {
-  //           id: "wlex31r8",
-  //           val: "81pd42k1"
-  //         }
-  //       }
-  //     },
-  //     "daxter": {
-  //       id: "02qpxryd",
-  //       subcategories: {
-  //         "all-masks": {
-  //           id: "0nwky65n",
-  //           val: "rqve69w1"
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
