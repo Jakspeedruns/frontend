@@ -241,8 +241,12 @@ function getScores(runnerTimes, difficulty) {
         zScore = Number.NEGATIVE_INFINITY;
         points = 0;
       }
-      if (difficulty == 13) {
+      if (difficulty == 11) {
+        points *= 1
+      } else if (difficulty == 12) {
         points *= 3 / 2
+      } else if (difficulty == 13) {
+        points *= 2
       } else if (difficulty == 14) {
         points *= 4
       } else {
@@ -264,10 +268,10 @@ function getScores(runnerTimes, difficulty) {
         else if (difficulty == 3 || difficulty == 13) {
           points *= (1 / 2);
         }
-        else if (difficulty == 2) {
+        else if (difficulty == 2 || difficulty == 12) {
           points *= (1 / 6);
         }
-        else if (difficulty == 1) {
+        else if (difficulty == 1 || difficulty == 11) {
           points *= (1 / 32);
         }
         else {
@@ -277,20 +281,22 @@ function getScores(runnerTimes, difficulty) {
       }
     }
 
-    if (difficulty > 1) {
-      if (difficulty == 2) {
-        points += 25;
-      } else if (difficulty == 3) {
-        points += 50;
-      } else if (difficulty == 4) {
-        points += 100;
-      } else if (difficulty == 12) {
-        points += 10;
-      } else if (difficulty == 13) {
-        points += 25;
-      } else if (difficulty == 14) {
-        points += 50;
-      }
+    if (difficulty == 1) {
+      points += 10;
+    } else if (difficulty == 2) {
+      points += 50;
+    } else if (difficulty == 3) {
+      points += 50;
+    } else if (difficulty == 4) {
+      points += 100;
+    } else if (difficulty == 11) {
+      points += 5;
+    } else if (difficulty == 12) {
+      points += 10;
+    } else if (difficulty == 13) {
+      points += 25;
+    } else if (difficulty == 14) {
+      points += 50;
     }
 
     scores.push(points)
@@ -310,8 +316,15 @@ function getScores(runnerTimes, difficulty) {
     
     let pointBoost=0;
 
-    if (difficulty > 1) {
-      if (difficulty == 2) {
+    if (difficulty > 0) {
+      if (difficulty == 1) {
+        pointBoost=10;
+        if (runCount > 24) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(250-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*10)-pointBoost))+pointBoost;
+        }
+      } else if (difficulty == 2) {
         pointBoost=25;
         if (runCount > 99) {
           runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(1000-pointBoost))+pointBoost;
@@ -332,12 +345,19 @@ function getScores(runnerTimes, difficulty) {
         } else {
           runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*100)-pointBoost))+pointBoost;
         }
-      } else if (difficulty == 12) {
-        pointBoost=10;
-        if (runCount > 99) {
-          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(500-pointBoost))+pointBoost;
+      } else if (difficulty == 11) {
+        pointBoost=5;
+        if (runCount > 19) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(100-pointBoost))+pointBoost;
         } else {
           runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*5)-pointBoost))+pointBoost;
+        }
+      } else if (difficulty == 12) {
+        pointBoost=10;
+        if (runCount > 49) {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*(500-pointBoost))+pointBoost;
+        } else {
+          runnerScores[i].points = (((runnerScores[i].points-pointBoost)/(maxPoints-pointBoost))*((runCount*10)-pointBoost))+pointBoost;
         }
       } else if (difficulty == 13) {
         pointBoost=25;
