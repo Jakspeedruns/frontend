@@ -1,6 +1,6 @@
 // Retrieve via:
 // https://www.speedrun.com/api/v1/games/<GAME_NAME>?embed=categories.variables
-
+//Version Variables not needed
 const jak2VersionVariable = {
   "original": {
     id: "5lyg6yl4",
@@ -139,79 +139,115 @@ export const gameIds = {
       }
     }
   },
-  "jak1ext": {//Unsure if this works for multiple subcategories
+  "jak1ext": {
     id: "3dxkp3g1",
     categories: {
-      "no-lts-ext": {
+      "no-lts-ext-nms": {
         id: "vdopw3o2",
         subcategories: {
           "no-major-skips": {
             id: "r8r4137n",
             val: "013g8mxl"
-          },
+          }
+        }
+      },
+      "no-lts-ext-nd": {
+        id: "vdopw3o2",
+        subcategories: {
           "no-damage": {
             id: "r8r4137n",
             val: "gq78jgd1"
-          },
+          }
+        }
+      },
+      "no-lts-ext-dg": {
+        id: "vdopw3o2",
+        subcategories: {
           "dark-glitch": {
             id: "r8r4137n",
             val: "21gm8g81"
-          },
-          jak1extVersionVariable
+          }
         }
       },
-      "debug": {
+      "debug-any": {
         id: "02qeyo72",
         subcategories: {
           "any": {
             id: "rn1j0x1n",
             val: "5lejr8k1"
-          },
+          }
+        }
+      },
+      "debug-100": {
+        id: "02qeyo72",
+        subcategories: {
           "100": {
             id: "rn1j0x1n",
             val: "0q5rn821"
-          },
-          jak1extVersionVariable
+          }
         }
       },
-      "100-hub-runs": {
+      "100-hub-1": {
         id: "9d8516wd",
         subcategories: {
           "hub-1": {
             id: "j84dexw8",
             val: "zqo4pnx1"
-          },
+          }
+        }
+      },
+      "100-hub-2": {
+        id: "9d8516wd",
+        subcategories: {
           "hub-2": {
             id: "j84dexw8",
             val: "013g8rxl"
-          },
+          }
+        }
+      },
+      "100-hub-3": {
+        id: "9d8516wd",
+        subcategories: {
           "hub-3": {
             id: "j84dexw8",
             val: "rqv8pd61"
-          },
-          jak1extVersionVariable
+          }
         }
       },
-      "ng-plus": {
+      "ng-plus-lw": {
         id: "xd1w9ez2",
         subcategories: {
           "lava-walk": {
             id: "p8554738",
             val: "4lxnp441"
-          },
+          }
+        }
+      },
+      "ng-plus-nlw": {
+        id: "xd1w9ez2",
+        subcategories: {
           "no-lava-walk": {
             id: "p8554738",
             val: "814zydvl"
-          },
+          }
+        }
+      },
+      "ng-plus-af": {
+        id: "xd1w9ez2",
+        subcategories: {
           "all-flies": {
             id: "p8554738",
             val: "p127dw4q"
-          },
+          }
+        }
+      },
+      "ng-plus-ao": {
+        id: "xd1w9ez2",
+        subcategories: {
           "all-orbs": {
             id: "p8554738",
             val: "12vv2y4q"
-          },
-          jak1extVersionVariable
+          }
         }
       },
       "low-eco": {
@@ -220,53 +256,62 @@ export const gameIds = {
           "lowest": {
             id: "38dmz3z8",
             val: "z19nmr8q"
-          },
-          "10-eco": {
-            id: "38dmz3z8",
-            val: "p127dz4q"
-          },
+          }
+        }
+      },
+      "low-eco-9": {
+        id: "jdzr18r2",
+        subcategories: {
           "9-eco": {
             id: "38dmz3z8",
             val: "81p9pn8q"
-          },
-          jak1extVersionVariable
+          }
+        }
+      },
+      "low-eco-10": {
+        id: "jdzr18r2",
+        subcategories: {
+          "10-eco": {
+            id: "38dmz3z8",
+            val: "p127dz4q"
+          }
         }
       },
       "orbless-max": {
         id: "9d8516qd",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "1-x-press": {
         id: "rkl04jwk",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "all-flies-and-orbs": {
         id: "9kvr5me2",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "52-pickup": {
         id: "zd35n6ek",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "kill-all-animals": {
         id: "ndxrz1jd",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "all-cutscenes": {
         id: "w20ejyzd",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "muse": {
         id: "wkpg6vvk",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "no-bs": {
         id: "7dg1l94d",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       },
       "all-flies-low-collectables": {
         id: "mkew3r9k",
-        subcategories: jak1extVersionVariable
+        subcategories: {}
       }
     }//Could add bingo
   },
@@ -299,96 +344,122 @@ export const gameIds = {
       }
     }
   },
-  "jak2ext": {//Unsure if this works for multiple subcategories
+  "jak2ext": {
     id: "v1pxqgm6",
     categories: {
-      "all-missions": {
+      "all-missions-act1": {
         id: "vdopw3o2",
         subcategories: {
           "act-1": {
             id: "6njk4ejl",
             val: "klrgpkjq"
-          },
+          }
+        }
+      },
+      "all-missions-act2": {
+        id: "vdopw3o2",
+        subcategories: {
           "act-2": {
             id: "6njk4ejl",
             val: "21d0z84q"
-          },
+          }
+        }
+      },
+      "all-missions-act3": {
+        id: "vdopw3o2",
+        subcategories: {
           "act-3": {
             id: "6njk4ejl",
             val: "5q8y6vgl"
-          },
-          jak2extVersionVariable
+          }
         }
       },
-      "any-exts": {
+      "any-exts-nd": {
         id: "rkl04zrk",
         subcategories: {
           "no-damage": {
             id: "ylpqerr8",
             val: "5lm5k3jq"
-          },
+          }
+        }
+      },
+      "any-exts-mirrored": {
+        id: "rkl04zrk",
+        subcategories: {
           "mirrored": {
             id: "ylpqerr8",
             val: "81wyp2oq"
-          },
-          jak2extVersionVariable
+          }
         }
       },
-      "any-segments": {
+      "any-segment-1": {
         id: "w20ej58d",
         subcategories: {
           "1-3": {
             id: "ql6r73kl",
             val: "8104znwl"
-          },
+          }
+        }
+      },
+      "any-segment-2": {
+        id: "w20ej58d",
+        subcategories: {
           "2-3": {
             id: "ql6r73kl",
             val: "9qj30mel"
-          },
+          }
+        }
+      },
+      "any-segment-3": {
+        id: "w20ej58d",
+        subcategories: {
           "3-3": {
             id: "ql6r73kl",
             val: "jq6d0o31"
-          },
-          jak2extVersionVariable
+          }
         }
       },
       "debug": {
         id: "xd1w9q72",
-        subcategories: jak2extVersionVariable
+        subcategories: {}
       },
       "gunless": {
         id: "9d851n6d",
-        subcategories: jak2extVersionVariable
+        subcategories: {}
       },
       "ashelin-stalker": {
         id: "zd35nr8k",
-        subcategories: jak2extVersionVariable
+        subcategories: {}
       },
-      "all-open-orbs-endgame": {
+      "all-open-orbs-endgame-ni": {
         id: "vdopwny2",
         subcategories: {
-          "no": {
+          "no-invuln": {
             id: "kn00jxon",
             val: "mlnxwv0q"
-          },
-          "yes": {
+          }
+        }
+      },
+      "all-open-orbs-endgame-i": {
+        id: "vdopwny2",
+        subcategories: {
+          "invuln": {
             id: "kn00jxon",
             val: "4qy0p24l"
-          },
-          jak2extVersionVariable
+          }
         }
       },
       "developer-picture": {
         id: "n2yrw6zd",
-        subcategories: jak2extVersionVariable
+        subcategories: {}
       },
       "praxis-1": {
         id: "wdmmg75d",
-        subcategories: jak2extVersionVariable
+        subcategories: {}
       },
       "im-gonna-kill-praxis": {
         id: "ndxrz05d",
-        subcategories: jak2extVersionVariable
+        subcategories: {}
       }
     }
   },
@@ -421,23 +492,23 @@ export const gameIds = {
       }
     }
   },
-  "jak3ext": {//Unsure if this works for multiple subcategories
+  "jak3ext": {//Need to figure out how to use multiple subcategories
     id: "76r3eg46",
     categories: {
-      "all-missions-acts": {
+      /**"all-missions-acts": {
         id: "q255rn82",
         subcategories: {
           "act-1": {
             id: "789d6y0n",
-            val: "klrgpkjq"
+            val: "81wyz5vq"
           },
           "act-2": {
             id: "789d6y0n",
-            val: "21d0z84q"
+            val: "zqo4krx1"
           },
           "act-3": {
             id: "789d6y0n",
-            val: "5q8y6vgl"
+            val: "013gd5xl"
           },
           "normal": {
             id: "2lg1rwol",
@@ -446,59 +517,62 @@ export const gameIds = {
           "ng-plus": {
             id: "2lg1rwol",
             val: "5lej9mk1"
-          },
-          jak3extVersionVariable
+          }
         }
-      },
+      },*/
       "no-oob-ng-plus": {
         id: "jdzr1mv2",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
       "all-bosses-ng-plus": {
         id: "jdrwj5xk",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
       "all-satellites-ng-plus": {
         id: "824q57gk",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
       "jetboardless-ng-plus": {
         id: "02qeynp2",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
       "debug": {
         id: "z2758qgk",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
       "hero-mode-hoverless": {
         id: "zd3m5682",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
       "all-open-orbs": {
         id: "zdnoejq2",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
       "all-open-orbs-post-game": {
         id: "q25plowd",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       },
-      "gunless": {
+      "gunless-ff": {
         id: "8243mwnd",
         subcategories: {
           "fresh-file": {
             id: "rn1ymmvn",
             val: "lx5ew421"
-          },
+          }
+        }
+      },
+      "gunless-hm": {
+        id: "8243mwnd",
+        subcategories: {
           "hero-mode": {
             id: "rn1ymmvn",
             val: "14o7ed0q"
-          },
-          jak3extVersionVariable
+          }
         }
       },
       "no-oob-restricted": {
         id: "7dgjoz4d",
-        subcategories: jak3extVersionVariable
+        subcategories: {}
       }
     }
   },
@@ -523,68 +597,71 @@ export const gameIds = {
       },
       "all-cups": {
         id: "9kvm8xek",
-        subcategories: {/**
-          "skips": {
-            id: "2lg155el",
-            val: "8104kwpl"
-          },
-          "no-skips": {
-            id: "2lg155el",
-            val: "9qj3kxol"
-          }**/
-        }
+        subcategories: {}
       }
     }
   },
-  "jakxext": {//Unsure if this works for multiple subcategories
+  "jakxext": {
     id: "46w28796",
     categories: {
       "all-story-arenas": {
         id: "mke71762",
-        subcategories: jakxextVersionVariable
+        subcategories: {}
       },
-      "all-cups-and-qualifiers": {
+      "all-cups-and-qualifiers-skips": {
         id: "5dwx3xl2",
         subcategories: {
           "skips": {
             id: "9l75j748",
             val: "zqovre41"
-          },
+          }
+        }
+      },
+      "all-cups-and-qualifiers-no-skips": {
+        id: "5dwx3xl2",
+        subcategories: {
           "no-skips": {
             id: "9l75j748",
             val: "01365ky1"
-          },
-          jakxextVersionVariable
+          }
         }
       },
-      "24-tracks": {
+      "24-tracks-skips": {
         id: "wk64q4xd",
         subcategories: {
           "skips": {
             id: "rn1jo0pn",
             val: "klr2yk01"
-          },
+          }
+        }
+      },
+      "24-tracks-no-skips": {
+        id: "wk64q4xd",
+        subcategories: {
           "no-skips": {
             id: "rn1jo0pn",
             val: "gq7xr3rl"
-          },
-          jakxextVersionVariable
+          }
         }
       },
-      "all-tours": {
+      "all-tours-skips": {
         id: "7kj4o5nk",
         subcategories: {
           "skips": {
             id: "38dm2gz8",
             val: "le26y36l"
-          },
+          }
+        }
+      },
+      "all-tours-no-skips": {
+        id: "7kj4o5nk",
+        subcategories: {
           "no-skips": {
             id: "38dm2gz8",
             val: "q5v9wxvl"
-          },
-          jakxextVersionVariable
+          }
         }
-      },
+      }
     }
   },
   "daxter": {
@@ -658,5 +735,5 @@ export const gameIds = {
         subcategories: {}
       }
     }
-  },
+  }
 }
