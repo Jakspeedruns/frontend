@@ -105,7 +105,7 @@ export const gameAndCategoryInfo = {
     "101": { "difficulty": 2, "title": "101%" }
   },
   "daxterext": {
-    "all-masks": { "difficulty": 0, "title": "All Masks" }
+    "all-masks": { "difficulty": 12, "title": "All Masks" }
   },
   "jaktlf": {
     "any": { "difficulty": 2, "title": "Any%" },
